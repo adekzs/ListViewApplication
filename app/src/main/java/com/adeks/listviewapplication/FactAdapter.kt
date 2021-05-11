@@ -14,7 +14,7 @@ class FactAdapter(context : Context, facts : List<FactModel>) : ArrayAdapter<Fac
         var view = convertView
         val fact = getItem(position)
         if (view == null) {
-            view = LayoutInflater.from(parent.context).inflate(R.layout.activity_list, parent, false)
+            view = LayoutInflater.from(parent.context).inflate(R.layout.fact_item, parent, false)
         }
         val logo = view?.findViewById<ImageView>(R.id.image_logo)
         val name = view?.findViewById<TextView>(R.id.titletv)
@@ -28,7 +28,8 @@ class FactAdapter(context : Context, facts : List<FactModel>) : ArrayAdapter<Fac
             intent.putExtra(LOGO_EXTRAS, fact?.logo)
             intent.putExtra(NAME_EXTRA ,fact?.name)
             intent.putExtra(FACT_EXTRAS, fact?.fact)
-            parent.context.startActivity(intent)        }
+            parent.context.startActivity(intent)
+        }
         return view!!
     }
 
